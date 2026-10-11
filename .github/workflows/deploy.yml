@@ -1,7 +1,6 @@
 # GitHub Actions workflow for PowerShell deployment
 name: PowerShell Deployment CI/CD
 
-# When to run this workflow
 on:
   push:
     branches:
@@ -10,7 +9,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '30 16 * * *'
   workflow_dispatch:
 
 jobs:
@@ -22,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Run Pester tests to check everything works
+      
       - name: Run Pester Tests
         shell: powershell
         run: |
@@ -32,12 +31,12 @@ jobs:
               exit 1
           }
 
-      # 3. Run the deployment script
+      # Run the deployment script
       - name: Run Deployment Script
         shell: powershell
         run: .\Script.ps1
 
-      # 4. Show the log file contents (runs even if something failed)
+      # Show the log file contents 
       - name: Show logs
         if: always()
         shell: powershell
@@ -46,7 +45,7 @@ jobs:
               Get-Content ".\SetupLogs.log"
           }
 
-      # 5. Save log file 
+      # Save log file 
       - name: Upload log file
         if: always()
         uses: actions/upload-artifact@v4
