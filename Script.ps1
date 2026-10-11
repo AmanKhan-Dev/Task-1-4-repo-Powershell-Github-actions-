@@ -20,7 +20,8 @@ function Write-Log {
     $line = "$time [$Level] $Message"
 
     Write-Host $line
-    Add-Content -Path $LogFile -Value $line
+    $currentLog = if ($global:LogFile) { $global:LogFile } elseif ($script:LogFile) { $script:LogFile } else { $LogFile }
+    Add-Content -Path $currentLog -Value $line
 }
 
 
