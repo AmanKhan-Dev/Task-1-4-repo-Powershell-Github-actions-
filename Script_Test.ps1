@@ -39,17 +39,17 @@ Describe "Deployment Script Tests" {
         It "creates the folder when it does not exist" {
             # Run the function
             $result = New-DestinationFolder -Path $script:TestFolder
-            $result | Should Be $true
+            $result | Should -Be $true
 
             # Verify that the folder actually exists on disk
             $folderExists = Test-Path -Path $script:TestFolder
-            $folderExists | Should Be $true
+            $folderExists | Should -Be $true
         }
 
         It "returns true even if the folder already exists" {
             # Call it a second time with the same folder path
             $result = New-DestinationFolder -Path $script:TestFolder
-            $result | Should Be $true
+            $result | Should -Be $true
         }
     }
 
@@ -61,11 +61,11 @@ Describe "Deployment Script Tests" {
         It "creates a new registry key" {
             # Call function to create key with an initial version
             $result = New-RegistryEntry -Path $script:TestRegKey -Name "Version" -Value "1.0"
-            $result | Should Be $true
+            $result | Should -Be $true
 
             # Check if registry key path exists
             $keyExists = Test-Path -Path $script:TestRegKey
-            $keyExists | Should Be $true
+            $keyExists | Should -Be $true
         }
 
         It "saves and updates the registry value" {
@@ -74,7 +74,7 @@ Describe "Deployment Script Tests" {
 
             # Read the value back from the registry to confirm
             $savedValue = Get-ItemPropertyValue -Path $script:TestRegKey -Name "Version"
-            $savedValue | Should Be "2.5"
+            $savedValue | Should -Be "2.5"
         }
     }
 
@@ -86,19 +86,19 @@ Describe "Deployment Script Tests" {
         It "copies files from source folder to destination folder" {
             # Call the copy function
             $result = Copy-SourceFiles -From $script:TestSource -To $script:TestTarget
-            $result | Should Be $true
+            $result | Should -Be $true
 
             # Check if the copied file exists in the destination
             $copiedFilePath = Join-Path $script:TestTarget "sample.txt"
             $fileExists = Test-Path -Path $copiedFilePath
-            $fileExists | Should Be $true
+            $fileExists | Should -Be $true
         }
 
         It "verifies that the copied file has the correct content" {
             # Read the copied file and verify its text
             $copiedFilePath = Join-Path $script:TestTarget "sample.txt"
             $fileContent = Get-Content -Path $copiedFilePath
-            $fileContent | Should Be "Hello World"
+            $fileContent | Should -Be "Hello World"
         }
     }
 
@@ -110,7 +110,7 @@ Describe "Deployment Script Tests" {
         It "returns false when the source folder is missing" {
             $fakeSource = Join-Path $TestDrive "FolderDoesNotExist"
             $result = Copy-SourceFiles -From $fakeSource -To $script:TestTarget
-            $result | Should Be $false
+            $result | Should -Be $false
         }
 
         It "returns false when destination folder cannot be created" {
@@ -120,7 +120,7 @@ Describe "Deployment Script Tests" {
             $invalidFolder = Join-Path $dummyFile "subfolder"
 
             $result = New-DestinationFolder -Path $invalidFolder
-            $result | Should Be $false
+            $result | Should -Be $false
         }
 
         It "writes an ERROR entry to the log file on failure" {
@@ -129,7 +129,7 @@ Describe "Deployment Script Tests" {
 
             # Read log file and check if ERROR was logged
             $logContent = Get-Content -Path $script:TestLog -Raw
-            $logContent | Should Match "ERROR"
+            $logContent | Should -Match "ERROR"
         }
     }
 
@@ -143,7 +143,7 @@ Describe "Deployment Script Tests" {
 
             # Check that the message appears in the log file
             $logContent = Get-Content -Path $script:TestLog -Raw
-            $logContent | Should Match "Test log entry from unit test"
+            $logContent | Should -Match "Test log entry from unit test"
         }
     }
 }
