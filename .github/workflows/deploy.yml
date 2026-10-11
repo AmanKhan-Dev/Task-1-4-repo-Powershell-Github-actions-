@@ -1,0 +1,56 @@
+# GitHub Actions workflow for PowerShell deployment
+name: PowerShell Deployment CI/CD
+
+# When to run this workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+      # 1. Download the code from the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Run Pester tests to check everything works
+      - name: Run Pester Tests
+        shell: powershell
+        run: |
+          $result = Invoke-Pester -Script .\Script_Test.ps1 -PassThru
+          if ($result.FailedCount -gt 0) {
+              Write-Error "Tests failed"
+              exit 1
+          }
+
+      # 3. Run the deployment script
+      - name: Run Deployment Script
+        shell: powershell
+        run: .\Script.ps1
+
+      # 4. Show the log file contents (runs even if something failed)
+      - name: Show logs
+        if: always()
+        shell: powershell
+        run: |
+          if (Test-Path ".\SetupLogs.log") {
+              Get-Content ".\SetupLogs.log"
+          }
+
+      # 5. Save log file 
+      - name: Upload log file
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-logs
+          path: SetupLogs.log
+          if-no-files-found: warn
