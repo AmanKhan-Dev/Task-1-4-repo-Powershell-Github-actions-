@@ -1,0 +1,37 @@
+2026-10-11 11:14:39 [INFO] ===== Setup started =====
+2026-10-11 11:14:39 [INFO] Folder created: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Files copied from C:\Users\ASUS\Desktop\Task 1 Powershell\source to C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Registry key created: HKCU:\Software\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Registry value set: InstallPath = C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 11:14:39 [INFO] Registry value set: Version = 1.0
+2026-10-11 11:14:39 [INFO] ===== Setup finished successfully =====
+2026-10-11 11:14:53 [INFO] ===== Setup started =====
+2026-10-11 11:14:53 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Files copied from C:\Users\ASUS\Desktop\Task 1 Powershell\source to C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Registry value set: InstallPath = C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 11:14:53 [INFO] Registry value set: Version = 1.0
+2026-10-11 11:14:53 [INFO] ===== Setup finished successfully =====
+2026-10-11 11:53:12 [INFO] Folder created: C:\Users\ASUS\AppData\Local\Temp\3f5fa880-74ec-411b-ad9d-bf54ef89ea17\DestFolder
+2026-10-11 12:59:13 [INFO] ===== Setup started =====
+2026-10-11 12:59:13 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Files copied from C:\Users\ASUS\Desktop\Task 1 Powershell\source to C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Registry value set: InstallPath = C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 12:59:13 [INFO] Registry value set: Version = 1.0
+2026-10-11 12:59:13 [INFO] ===== Setup finished successfully =====
+2026-10-11 13:21:30 [INFO] ===== Setup started =====
+2026-10-11 13:21:30 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Folder already exists: C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Files copied from C:\Users\ASUS\Desktop\Task 1 Powershell\source to C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Registry value set: InstallPath = C:\Users\ASUS\Desktop\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Registry key already exists: HKCU:\Software\MyAssignmentApp
+2026-10-11 13:21:30 [INFO] Registry value set: Version = 1.0
+2026-10-11 13:21:30 [INFO] ===== Setup finished successfully =====
