@@ -15,7 +15,7 @@ Describe "Deployment Script Tests" {
         $script:TestSource = Join-Path $TestDrive "TestSource"
         $script:TestTarget = Join-Path $TestDrive "TestTarget"
         $script:TestLog = Join-Path $TestDrive "test.log"
-        $script:LogFile = $script:TestLog
+        $global:LogFile = $script:TestLog
         $script:TestRegKey = "HKCU:\Software\TraineeTestKey"
 
         # Step 3: Create a dummy source folder with a test file
@@ -29,6 +29,7 @@ Describe "Deployment Script Tests" {
         if (Test-Path $script:TestRegKey) {
             Remove-Item -Path $script:TestRegKey -Recurse -Force
         }
+        Remove-Variable -Name LogFile -Scope Global -ErrorAction SilentlyContinue
     }
 
     # --------------------------------------------------------
